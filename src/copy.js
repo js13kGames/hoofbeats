@@ -4,7 +4,7 @@ export const COPY = {
 		'game-title': 'HOOFBEATS',
 		'start-label': 'START GAME',
 		'help-label': 'HOW TO PLAY',
-		'high-score-label': 'HI-SCORE',
+		'high-score-label': 'HI-SCORE ',
 		'creator-label': 'a game by aria ',
 		'creator-link': 'unicornfan.com',
 		'dash-button': 'DASH',
