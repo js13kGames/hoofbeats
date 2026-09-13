@@ -54,11 +54,11 @@ export class InputController {
 				this.keys.add(_code);
 				_event.preventDefault();
 			}
-			if(_code === 'KeyE' || _code === 'KeyQ') {
+			if(['KeyE', 'KeyK', 'KeyX', 'KeyQ'].includes(_code)) {
 				_event.preventDefault();
 				if(!_event.repeat) _callbacks.shoot();
 			}
-			if(_code === 'Space' || _code === 'ShiftLeft' || _code === 'ShiftRight') {
+			if(['Space', 'KeyJ', 'KeyZ', 'ShiftLeft', 'ShiftRight'].includes(_code)) {
 				_event.preventDefault();
 				if(!_event.repeat) {
 					_callbacks.dash();
