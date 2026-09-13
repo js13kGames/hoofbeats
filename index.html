@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title id="page-title"></title>
+		<link rel="icon" href="data:," />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<canvas id="arena"></canvas>
+		<div id="hud" hidden>
+			<div class="score-cluster">
+				<span id="stats" class="pill"></span>
+				<div id="color-dial"><strong id="score-rate"></strong></div>
+			</div>
+			<div id="timer">
+				<div id="timer-ring"></div>
+				<span id="time-left"></span>
+			</div>
+		</div>
+		<div id="touch-actions" hidden>
+			<button id="dash-button"></button><button id="shoot-button"></button
+			><button id="pause-button"></button>
+		</div>
+		<div id="joystick"><div id="joystick-thumb"></div></div>
+		<div id="paused" hidden>
+			<div class="pause-menu"><button id="resume"></button><button id="pause-title"></button></div>
+		</div>
+		<div id="round-callout" hidden>
+			<strong id="round-callout-title" role="status"></strong>
+			<div id="round-countdown-row">
+				<progress id="round-countdown-bar" max="3" value="3"></progress
+				><span id="round-countdown"></span>
+			</div>
+		</div>
+		<section id="home" class="screen">
+			<h1 id="game-title"></h1>
+			<nav id="menu-buttons">
+				<button id="start-game" class="pill"><span id="start-label"></span></button
+				><button id="how-to-play" class="pill"><span id="help-label"></span></button>
+			</nav>
+			<div id="high-score">
+				<span id="high-score-label"></span> <strong id="best-score">0</strong>
+				<div id="creator-credit">
+					<span id="creator-label"></span>
+					<a
+						id="creator-link"
+						href="https://unicornfan.com"
+						target="_blank"
+						rel="noopener noreferrer"
+					></a>
+				</div>
+			</div>
+		</section>
+		<section id="help" class="screen" aria-labelledby="help-title" hidden>
+			<h2 id="help-title" class="pill"></h2>
+			<div id="lessons">
+				<article class="lesson" style="--accent: var(--dash-color)">
+					<button id="lesson-dashing" aria-expanded="true" aria-controls="detail-dashing"></button>
+					<div id="detail-dashing" class="lesson-detail">
+						<p></p>
+						<div class="lesson-visual"></div>
+					</div>
+				</article>
+				<article class="lesson" style="--accent: var(--shoot-color)">
+					<button
+						id="lesson-shooting"
+						aria-expanded="false"
+						aria-controls="detail-shooting"
+					></button>
+					<div id="detail-shooting" class="lesson-detail" hidden>
+						<p></p>
+						<div class="lesson-visual"></div>
+					</div>
+				</article>
+				<article class="lesson" style="--accent: #19bb70">
+					<button id="lesson-scoring" aria-expanded="false" aria-controls="detail-scoring"></button>
+					<div id="detail-scoring" class="lesson-detail" hidden>
+						<p></p>
+						<div class="lesson-visual"></div>
+					</div>
+				</article>
+			</div>
+			<button id="help-back" class="pill"></button>
+		</section>
+		<section id="results" class="screen" hidden>
+			<h2 id="results-title" class="pill"></h2>
+			<div id="ranking-window"><ol id="rankings"></ol></div>
+			<div id="results-actions">
+				<button id="results-home" class="pill" hidden></button
+				><button id="play-again" class="pill" hidden></button>
+			</div>
+		</section>
+		<script type="module" src="src/client/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,8 @@
+{
+	"selectors": [0, 1, 2, 3, 6, 7, 13, 21, 25, 42, 50, 57, 4, 5, 9, 17],
+	"bits": 20,
+	"max_count": 4,
+	"divisor": 20,
+	"learning": 1500,
+	"abbreviations": 128
+}

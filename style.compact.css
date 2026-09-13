@@ -1,0 +1,364 @@
+:root {
+	color-scheme: dark;
+	font:
+		bold 20px Helvetica,
+		Arial,
+		sans-serif;
+	color: #fff;
+	background: #000;
+	--dial-orbit: 24px;
+	--dash-color: #b71f40;
+	--shoot-color: #5065bb;
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	overflow: hidden;
+}
+[hidden] {
+	display: none !important;
+}
+button {
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	touch-action: manipulation;
+	border: 0;
+	background: #5065bb;
+	padding: 14px 24px;
+	border-radius: 40px;
+}
+button:disabled {
+	opacity: 0.4;
+}
+button:focus-visible {
+	outline: 3px solid #ffe600;
+	outline-offset: 3px;
+}
+.pill,
+.pause-menu button {
+	background: #fff;
+	color: #09080b;
+	border-radius: 40px;
+	padding: 14px 24px;
+	margin: 0;
+}
+.screen,
+#paused {
+	position: fixed;
+	inset: 0;
+	background: #000;
+	z-index: 3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 22px;
+	padding: 20px;
+}
+#arena {
+	position: fixed;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	touch-action: none;
+	image-rendering: pixelated;
+}
+#game-title {
+	font-size: clamp(32px, 10.5vw, 140px);
+	margin: 0;
+	letter-spacing: -0.04em;
+}
+#menu-buttons,
+.pause-menu {
+	display: grid;
+	gap: 16px;
+}
+#menu-buttons button {
+	width: 250px;
+}
+#high-score {
+	position: absolute;
+	bottom: max(22px, env(safe-area-inset-bottom));
+	text-align: center;
+	font-size: 17px;
+}
+#creator-credit {
+	margin-top: 8px;
+}
+#creator-link {
+	color: inherit;
+}
+h2 {
+	font-size: inherit;
+}
+#lessons {
+	width: min(900px, 100%);
+	display: grid;
+	gap: 12px;
+}
+.lesson {
+	border-radius: 28px;
+	background: #fff;
+	color: #302737;
+	overflow: hidden;
+}
+.lesson > button {
+	background: var(--accent);
+	width: 100%;
+}
+.lesson-detail {
+	display: grid;
+	grid-template-columns: 1fr 35%;
+	padding: 10px;
+	gap: 12px;
+}
+.lesson p {
+	font: 700 clamp(14px, 2vw, 20px)/1.4 monospace;
+	white-space: pre-line;
+	margin: 8px;
+	max-height: 28vh;
+	overflow: auto;
+}
+.lesson-visual {
+	background: #18212e;
+	display: grid;
+	align-items: center;
+	border-radius: 20px;
+}
+.lesson-visual svg {
+	width: 100%;
+	max-height: 190px;
+}
+#hud {
+	position: fixed;
+	top: 12px;
+	left: 12px;
+	right: 12px;
+	display: flex;
+	justify-content: space-between;
+	pointer-events: none;
+	z-index: 1;
+}
+.score-cluster {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+#stats {
+	font-variant-numeric: tabular-nums;
+}
+#color-dial,
+#timer {
+	position: relative;
+	width: 72px;
+	height: 72px;
+	display: grid;
+	place-items: center;
+	background: #fff;
+	border-radius: 50%;
+	color: #09080b;
+}
+#color-dial i {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	left: 31px;
+	top: 31px;
+}
+#score-rate {
+	font-size: 18px;
+}
+#timer {
+	border: 4px solid #ff8000;
+	font-variant-numeric: tabular-nums;
+}
+#timer-ring {
+	display: none;
+}
+#touch-actions {
+	position: fixed;
+	bottom: 22px;
+	right: 20px;
+	display: flex;
+	gap: 10px;
+	z-index: 1;
+}
+#touch-actions button {
+	width: 86px;
+	height: 86px;
+	padding: 4px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	touch-action: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+#dash-button {
+	background: var(--dash-color);
+}
+#dash-button.locked {
+	box-shadow: 0 0 0 4px #ffe600;
+}
+#touch-actions #pause-button {
+	position: fixed;
+	right: 28px;
+	top: 96px;
+	width: 38px;
+	height: 38px;
+	background: #fff;
+	color: #09080b;
+}
+#joystick {
+	position: fixed;
+	bottom: 22px;
+	left: 20px;
+	width: 110px;
+	height: 110px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	touch-action: none;
+	z-index: 1;
+}
+#joystick-thumb {
+	position: absolute;
+	left: 38px;
+	top: 38px;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: #fff;
+	pointer-events: none;
+}
+#paused {
+	background: #000b;
+	z-index: 10;
+}
+#round-callout {
+	position: fixed;
+	top: 20%;
+	width: 100%;
+	text-align: center;
+	pointer-events: none;
+	z-index: 2;
+	text-shadow: 3px 4px #08111b;
+}
+#round-callout-title {
+	font: italic 900 clamp(48px, 10vw, 110px) sans-serif;
+	color: #ffdf93;
+}
+#round-countdown-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 12px;
+	margin-top: 12px;
+}
+#round-countdown-bar {
+	width: 25vw;
+	accent-color: #ffe600;
+}
+#results {
+	justify-content: initial;
+}
+#ranking-window {
+	width: min(100%, 680px);
+	flex: 1;
+	min-height: 0;
+	overflow: auto;
+}
+#rankings {
+	padding: 0;
+	list-style: none;
+}
+#rankings li {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 12px 18px;
+	margin-bottom: 8px;
+	border-radius: 20px;
+	background: #18212e;
+}
+#rankings .player {
+	background: #fff;
+	color: #b71f40;
+}
+#results-actions {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	width: 100%;
+}
+@media (max-width: 600px) {
+	:root {
+		font-size: 16px;
+	}
+	#stats {
+		padding: 12px;
+	}
+	.score-cluster {
+		gap: 6px;
+	}
+	#touch-actions {
+		right: 12px;
+		gap: 6px;
+	}
+	#touch-actions button {
+		width: 76px;
+		height: 76px;
+	}
+	#help {
+		padding: 12px;
+		gap: 14px;
+	}
+	.lesson-detail {
+		gap: 2px;
+	}
+	.lesson p {
+		margin: 4px;
+	}
+	#high-score {
+		font-size: 15px;
+	}
+}
+@media (max-height: 480px) {
+	.screen {
+		gap: 10px;
+		padding: 10px;
+	}
+	button,
+	.pill {
+		padding: 8px 16px;
+	}
+	#lessons {
+		gap: 6px;
+	}
+	.lesson-visual svg {
+		max-height: 100px;
+	}
+	#high-score {
+		position: static;
+	}
+	.lesson p {
+		max-height: 20vh;
+	}
+	#menu-buttons {
+		gap: 10px;
+	}
+}
+#home {
+	background: #0005;
+}
+#game-title {
+	text-shadow: 0 4px 20px #000;
+}
+.lesson p strong {
+	white-space: nowrap;
+}
+.lesson p strong:before {
+	content: '\25cf\a0';
+}
