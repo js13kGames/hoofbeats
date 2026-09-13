@@ -5,7 +5,7 @@ export const COPY = {
 		'start-label': 'START GAME',
 		'help-label': 'HOW TO PLAY',
 		'high-score-label': 'HI-SCORE',
-		'creator-label': 'a game by aria',
+		'creator-label': 'a game by aria ',
 		'creator-link': 'unicornfan.com',
 		'dash-button': 'DASH',
 		'shoot-button': 'SHOOT',
